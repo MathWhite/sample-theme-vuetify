@@ -9,12 +9,12 @@
         @change="toggleTheme"
         class="mt-6 mr-2"
       />
-      <v-icon class="ml-2 mr-5">{{ isDarkTheme ? 'mdi-weather-sunny' : 'mdi-weather-night' }}</v-icon>
+      <v-icon class="ml-2 mr-5">{{ isDarkTheme ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
     </div>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer" app  permanent :width="150">
-    <v-list>
+  <v-navigation-drawer v-model="drawer" app>
+    <v-list density="compact" nav>
       <v-list-item
         v-for="item in navItems"
         :key="item.title"
@@ -22,18 +22,7 @@
         router
         class="nav-item"
       >
-        <v-list-item-content>
-          <v-row>
-            <v-col cols="12" md="4">
-              <v-list-item-icon>
-                <v-icon>{{ item.icon }}</v-icon>
-              </v-list-item-icon>
-            </v-col>            
-            <v-col cols="12" md="8">
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-col>
-          </v-row>          
-        </v-list-item-content>
+        <v-list-item :prepend-icon="item.icon" :title="item.title"></v-list-item>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
